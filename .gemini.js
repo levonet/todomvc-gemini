@@ -17,5 +17,13 @@ module.exports = {
                 }
             }
         }
+    },
+
+    system: {
+        plugins: {
+            optipng: {
+                level: 5
+            }
+        }
     }
 };

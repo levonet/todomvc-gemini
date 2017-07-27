@@ -37,3 +37,18 @@
      ```sh
      json-server db.json --port 8080 --routes routes.json --static . --read-only
      ```
+3. Оптимизация и хранение изображений
+   - Git Large File Storage
+     - установка [git-lfs](https://git-lfs.github.com)
+     - инициализация в проекте
+       ```sh
+       git lfs track test/gemini/references/**/*.png
+       ```
+   - Плагин оптимизации изображений [gemini-optipng](https://github.com/gemini-testing/gemini-optipng)
+     ```sh
+     npm install --save-dev gemini-optipng
+     ```
+   - Запуск gemini в режиме сохранения эталонных изображений
+     ```sh
+     gemini update test/gemini/suites/todomvc.gemini.js
+     ```
