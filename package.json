@@ -15,9 +15,11 @@
     "gemini": "^5.0.0-alpha.3",
     "gemini-gui": "^5.0.0-alpha.2",
     "gemini-optipng": "^1.0.0",
+    "html-reporter": "^0.2.2",
     "karma": "^0.13.0",
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^0.1.7",
-    "karma-jasmine": "^0.2.2"
+    "karma-jasmine": "^0.2.2",
+    "stat-reporter": "^0.2.1"
   }
 }

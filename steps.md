@@ -52,3 +52,13 @@
      ```sh
      gemini update test/gemini/suites/todomvc.gemini.js
      ```
+4. Обработка ошибок и отчеты
+   - [HTML-отчет](https://github.com/gemini-testing/html-reporter)
+     ```sh
+     npm install --save-dev html-reporter
+     ```
+   - [JSON-отчет](https://github.com/gemini-testing/json-reporter)
+   - [TeamCity-отчет](https://github.com/gemini-testing/gemini-teamcity)
+   - [stat-reporter](https://github.com/gemini-testing/stat-reporter)
+   - [retry](https://github.com/gemini-testing/gemini/blob/master/doc/config.md#browsers-settings)
+   - [skip()](https://github.com/gemini-testing/gemini/blob/master/doc/tests.md#suite-builder-methods)

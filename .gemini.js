@@ -6,6 +6,7 @@ module.exports = {
     screenshotsDir: 'test/gemini/references',
 
     // sessionsPerBrowser: 3,
+    // retry: 2,
 
     browsers: {
         'desktop-chrome': {
@@ -23,6 +24,13 @@ module.exports = {
         plugins: {
             optipng: {
                 level: 5
+            },
+            'html-reporter': {
+                enabled: true,
+                path: 'gemini-report'
+            },
+            'stat-reporter/gemini': {
+                enabled: true
             }
         }
     }
