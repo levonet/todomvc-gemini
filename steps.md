@@ -28,3 +28,12 @@
      gemini-gui test/gemini/suites/todomvc.gemini.js
      ```
    - рассказ: в чем проблемы такого использования gemini
+2. Пример теста с застабленными данными
+   - установка [json-server](https://github.com/typicode/json-server/)
+     ```sh
+     npm install json-server
+     ```
+   - запуск http-сервера со стабом `/api/todos`
+     ```sh
+     json-server db.json --port 8080 --routes routes.json --static . --read-only
+     ```
