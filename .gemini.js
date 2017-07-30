@@ -32,6 +32,13 @@ module.exports = {
             'stat-reporter/gemini': {
                 enabled: true
             }
+        },
+        coverage: {
+            enabled: true,
+            exclude: [
+                'node_modules/todomvc-common/base.css',
+                'null'
+            ]
         }
     }
 };

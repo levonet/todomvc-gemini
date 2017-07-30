@@ -62,3 +62,8 @@
    - [stat-reporter](https://github.com/gemini-testing/stat-reporter)
    - [retry](https://github.com/gemini-testing/gemini/blob/master/doc/config.md#browsers-settings)
    - [skip()](https://github.com/gemini-testing/gemini/blob/master/doc/tests.md#suite-builder-methods)
+5. Отчет о покрытии CSS тестами
+   - Утилита для генерации HTML-отчета [gemini-coverage](https://github.com/gemini-testing/gemini-coverage)
+     ```sh
+     npm install --save-dev gemini-coverage
+     ```
