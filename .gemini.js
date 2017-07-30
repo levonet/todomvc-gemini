@@ -20,6 +20,13 @@ module.exports = {
         }
     },
 
+    sets: {
+        local: {
+            files: ['test/gemini/suites/**/*.gemini.js'],
+            browsers: ['desktop-chrome']
+        }
+    },
+
     system: {
         plugins: {
             optipng: {
@@ -31,6 +38,15 @@ module.exports = {
             },
             'stat-reporter/gemini': {
                 enabled: true
+            },
+            'json-server': {
+                enabled: true,
+                port: 8080,
+                schema: 'db.json',
+                routes: 'routes.json',
+                static: '.',
+                readOnly: true,
+                quiet: true
             }
         },
         coverage: {

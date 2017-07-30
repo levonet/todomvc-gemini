@@ -67,3 +67,10 @@
      ```sh
      npm install --save-dev gemini-coverage
      ```
+6. Автоматизация локального запуска тестов
+   - автоматический запуск сервера разработки на примере [gemini-json-server](https://github.com/levonet/gemini-json-server)
+   - секция конфигурации [sets](https://github.com/gemini-testing/gemini/blob/master/doc/config.md#sets)
+   - npm run-скрипт
+     ```sh
+     npm run gemini
+     ```
