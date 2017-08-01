@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "4"
 before_script: 
-  - SCRT=$SECRETTEST echo "INSTALL Secret: $SCRT"
+  - SCRT=$SECRETTEST echo "INSTALL Secret"
   - git lfs pull
 script:
-  - SCRT=$SECRETTEST echo "TEST Secret: $SCRT"
+  - SCRT=$SECRETTEST echo "TEST Secret"
