@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "test": "karma start test/config/karma.conf.js",
-    "gemini": "gemini test -s local"
+    "gemini": "gemini test -s local",
+    "gemini-sauce": "gemini_grid_url=\"http://ondemand.saucelabs.com/wd/hub\" gemini test -s sauce"
   },
   "dependencies": {
     "angular": "^1.4.3",
@@ -18,6 +19,7 @@
     "gemini-gui": "^5.0.0-alpha.2",
     "gemini-json-server": "git+https://github.com/levonet/gemini-json-server.git",
     "gemini-optipng": "^1.0.0",
+    "gemini-saucelabs-info": "^1.0.0",
     "html-reporter": "^0.2.2",
     "karma": "^0.13.0",
     "karma-chrome-launcher": "^0.2.2",

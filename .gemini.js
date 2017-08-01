@@ -59,6 +59,9 @@ module.exports = {
                 static: '.',
                 readOnly: true,
                 quiet: true
+            },
+            'gemini-saucelabs-info': {
+                enabled: true
             }
         },
         coverage: {

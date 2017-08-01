@@ -91,3 +91,8 @@
        ```sh
        gemini_grid_url="http://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.saucelabs.com/wd/hub" gemini-gui -s sauce
        ```
+8. Запуск gemini в [Travis CI](travis-ci.com)
+   - установка [gemini-saucelabs-info](https://github.com/gemini-testing/gemini-saucelabs-info)
+     ```sh
+     npm install --save-dev gemini-saucelabs-info
+     ```
