@@ -5,4 +5,10 @@ before_script:
   - SCRT=$SECRETTEST echo "INSTALL Secret"
   - git lfs pull
 script:
-  - SCRT=$SECRETTEST echo "TEST Secret"
+  - |
+      SCRT=$SECRETTEST
+      if [ "${SCRT}" == "some-secret" ]; then
+        echo "TEST Secret"
+      else
+        echo "TEST Fail"
+      fi
