@@ -74,3 +74,20 @@
      ```sh
      npm run gemini
      ```
+7. Внешний Selenium Grid и туннелирование
+   - схема подключения с тоннелем через статический сервер
+     ![Tunneler](tunneler.png)
+   - плагин для поднятия ssh тоннеля [ssh-tunneler](https://github.com/gemini-testing/ssh-tunneler)
+   - запуск тестов в [SauceLabs](https://saucelabs.com)
+     - установка [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy)
+     - запуск Sauce Connect Proxy
+       ```sh
+       export SAUCE_USERNAME=xxxxxx
+       export SAUCE_ACCESS_KEY=yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
+       path/to/sc
+       ```
+     - подбор `desiredCapabilities` в [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/)
+     - запуск тестов в firefox из gemini-gui
+       ```sh
+       gemini_grid_url="http://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.saucelabs.com/wd/hub" gemini-gui -s sauce
+       ```
