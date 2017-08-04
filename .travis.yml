@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "4"
+env:
+  global:
+    - TESTVAL=foo
+script:
+  - echo "TRAVIS_BUILD_ID '${TRAVIS_BUILD_ID}'"
+  - echo "TRAVIS_BUILD_NUMBER '${TRAVIS_BUILD_NUMBER}'"
+  - echo "TRAVIS_BRANCH '${TRAVIS_BRANCH}'"
+  - echo "TRAVIS_EVENT_TYPE '${TRAVIS_EVENT_TYPE}'"
+  - echo "TRAVIS_COMMIT '${TRAVIS_COMMIT}'"
+  - echo "TRAVIS_PULL_REQUEST '${TRAVIS_PULL_REQUEST}'"
+  - echo "TRAVIS_PULL_REQUEST_BRANCH '${TRAVIS_PULL_REQUEST_BRANCH}'"
+  - echo "TRAVIS_PULL_REQUEST_SHA '${TRAVIS_PULL_REQUEST_SHA}'"
+  - echo "TRAVIS_PULL_REQUEST_SLUG '${TRAVIS_PULL_REQUEST_SLUG}'"
+  - echo "TRAVIS_REPO_SLUG '${TRAVIS_REPO_SLUG}'"
+  - echo "TRAVIS_SECURE_ENV_VARS '${TRAVIS_SECURE_ENV_VARS}'"
+  - echo "TESTVAL '${TESTVAL}'"
+deploy:
+  provider: surge
+  domain: "${TRAVIS_BRANCH}-${TRAVIS_EVENT_TYPE}-${TESTVAL}-gemini-example.surge.sh"
+  on:
+    all_branches: true
