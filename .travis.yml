@@ -17,5 +17,5 @@ after_script:
         surge -p reports-surge -d ${DEPLOY_DOMAIN}
         curl -H "Authorization: token ${GITHUB_TOKEN}" \
           --request POST "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments" \
-          --data '{"body":"Travis automatic deployment:\n\n- [Gemini Coverage](http://${DEPLOY_DOMAIN}/gemini-coverage/)\n- [Gemini Report](http://${DEPLOY_DOMAIN}/gemini-report/)"}'
+          --data '{"body":"Travis automatic deployment:\n\n- [Gemini Coverage](http://'${DEPLOY_DOMAIN}'/gemini-coverage/)\n- [Gemini Report](http://'${DEPLOY_DOMAIN}'/gemini-report/)"}'
       fi
