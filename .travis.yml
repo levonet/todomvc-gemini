@@ -8,6 +8,7 @@ after_script:
       if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
         REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
         DEPLOY_DOMAIN="pr-${TRAVIS_PULL_REQUEST}-${REPO_SLUG_ARRAY[1]}-${REPO_SLUG_ARRAY[0]}.surge.sh"
+        git stash apply
         npm install surge
         mkdir reports-surge
         mkdir reports-surge/gemini-coverage
