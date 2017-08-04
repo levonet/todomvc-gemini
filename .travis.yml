@@ -17,6 +17,7 @@ script:
   - echo "TRAVIS_REPO_SLUG '${TRAVIS_REPO_SLUG}'"
   - echo "TRAVIS_SECURE_ENV_VARS '${TRAVIS_SECURE_ENV_VARS}'"
   - echo "TESTVAL '${TESTVAL}'"
+  - env
 deploy:
   provider: surge
   domain: "${TRAVIS_BRANCH}-${TRAVIS_EVENT_TYPE}-${TESTVAL}-gemini-example.surge.sh"
