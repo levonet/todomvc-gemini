@@ -19,4 +19,3 @@ after_script:
           --request POST "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments" \
           --data '{"body":"Travis automatic deployment:\n\n- '${DEPLOY_DOMAIN}/gemini-coverage'\n- '${DEPLOY_DOMAIN}/gemini-report'"}'
       fi
-    |
