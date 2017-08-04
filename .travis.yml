@@ -3,7 +3,7 @@ node_js:
   - "4"
 env:
   global:
-    - TESTVAL=foo
+    - SUBHOST="${TRAVIS_BUILD_NUMBER}-${TRAVIS_EVENT_TYPE}"
 script:
   - echo "TRAVIS_BUILD_ID '${TRAVIS_BUILD_ID}'"
   - echo "TRAVIS_BUILD_NUMBER '${TRAVIS_BUILD_NUMBER}'"
@@ -16,10 +16,9 @@ script:
   - echo "TRAVIS_PULL_REQUEST_SLUG '${TRAVIS_PULL_REQUEST_SLUG}'"
   - echo "TRAVIS_REPO_SLUG '${TRAVIS_REPO_SLUG}'"
   - echo "TRAVIS_SECURE_ENV_VARS '${TRAVIS_SECURE_ENV_VARS}'"
-  - echo "TESTVAL '${TESTVAL}'"
-  - env
+  - echo "SUBHOST '${SUBHOST}'"
 deploy:
   provider: surge
-  domain: "${TRAVIS_BRANCH}-${TRAVIS_EVENT_TYPE}-${TESTVAL}-gemini-example.surge.sh"
+  domain: "${SUBHOST}-gemini-example.surge.sh"
   on:
     all_branches: true
