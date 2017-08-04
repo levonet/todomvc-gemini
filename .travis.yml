@@ -1,24 +1,22 @@
 language: node_js
 node_js:
   - "4"
-env:
-  global:
-    - SUBHOST="${TRAVIS_BUILD_NUMBER}-${TRAVIS_EVENT_TYPE}"
 script:
-  - echo "TRAVIS_BUILD_ID '${TRAVIS_BUILD_ID}'"
-  - echo "TRAVIS_BUILD_NUMBER '${TRAVIS_BUILD_NUMBER}'"
-  - echo "TRAVIS_BRANCH '${TRAVIS_BRANCH}'"
-  - echo "TRAVIS_EVENT_TYPE '${TRAVIS_EVENT_TYPE}'"
-  - echo "TRAVIS_COMMIT '${TRAVIS_COMMIT}'"
-  - echo "TRAVIS_PULL_REQUEST '${TRAVIS_PULL_REQUEST}'"
-  - echo "TRAVIS_PULL_REQUEST_BRANCH '${TRAVIS_PULL_REQUEST_BRANCH}'"
-  - echo "TRAVIS_PULL_REQUEST_SHA '${TRAVIS_PULL_REQUEST_SHA}'"
-  - echo "TRAVIS_PULL_REQUEST_SLUG '${TRAVIS_PULL_REQUEST_SLUG}'"
-  - echo "TRAVIS_REPO_SLUG '${TRAVIS_REPO_SLUG}'"
-  - echo "TRAVIS_SECURE_ENV_VARS '${TRAVIS_SECURE_ENV_VARS}'"
-  - echo "SUBHOST '${SUBHOST}'"
-deploy:
-  provider: surge
-  domain: "${SUBHOST}-gemini-example.surge.sh"
-  on:
-    all_branches: true
+  - echo "test"
+after_script:
+  - |
+      if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+        REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
+        DEPLOY_DOMAIN="pr-${TRAVIS_PULL_REQUEST}-${REPO_SLUG_ARRAY[1]}-${REPO_SLUG_ARRAY[0]}.surge.sh"
+        npm install surge
+        mkdir reports-surge
+        mkdir reports-surge/gemini-coverage
+        mkdir reports-surge/gemini-report
+        cp index.html reports-surge/gemini-coverage
+        cp index.html reports-surge/gemini-report
+        surge -p reports-surge -d ${DEPLOY_DOMAIN}
+        curl -H "Authorization: token ${GITHUB_TOKEN}" \
+          --request POST "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments" \
+          --data '{"body":"Travis automatic deployment:\n\n- '${DEPLOY_DOMAIN}/gemini-coverage'\n- '${DEPLOY_DOMAIN}/gemini-report'"}'
+      fi
+    |
