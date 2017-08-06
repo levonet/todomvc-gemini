@@ -13,5 +13,14 @@ module.exports = {
                 }
             }
         }
+    },
+
+    system: {
+        plugins: {
+            'html-reporter': {
+                enabled: true,
+                path: 'gemini-report'
+            }
+        }
     }
 };
