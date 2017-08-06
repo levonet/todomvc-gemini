@@ -16,11 +16,7 @@ gemini.suite('todomvc', (suite) => {
     gemini.suite('active', (suite) => {
         suite
             .setCaptureElements('#todo-list>li:first-child')
-            .capture('plain', (actions) => {
-                actions
-                    .sendKeys('Самое важное дело жизни')
-                    .sendKeys(gemini.ENTER)
-            })
+            .capture('plain')
             .capture('hovered', (actions) => {
                 actions
                     .mouseMove('#todo-list>li:first-child')
@@ -34,14 +30,7 @@ gemini.suite('todomvc', (suite) => {
     gemini.suite('completed', (suite) => {
         suite
             .setCaptureElements('#todo-list>li:last-child')
-            .capture('plain', (actions) => {
-                actions
-                    .sendKeys('Подготовить доклад на Я.Субботник')
-                    .sendKeys(gemini.ENTER)
-                    .click('#todo-list>li:last-child .toggle')
-                    .wait(400)
-                    .mouseMove('#todo-list', { x: -100, y: -100 })  // убираем фокус
-            })
+            .capture('plain')
             .capture('hovered', (actions) => {
                 actions
                     .mouseMove('#todo-list>li:last-child')
@@ -51,11 +40,7 @@ gemini.suite('todomvc', (suite) => {
     gemini.suite('footer', (suite) => {
         suite
             .setCaptureElements('#footer')
-            .capture('plain', (actions) => {
-                actions
-                    .sendKeys('#new-todo', 'sometext')
-                    .sendKeys(gemini.ENTER)
-            })
+            .capture('plain')
             .capture('btn-hovered', (actions) => {
                 actions
                     .mouseMove('#filters>li:nth-child(2)')
