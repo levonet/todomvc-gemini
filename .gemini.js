@@ -5,7 +5,9 @@ module.exports = {
     gridUrl: 'http://localhost:4444/wd/hub',
     screenshotsDir: 'test/gemini/references',
 
-    // sessionsPerBrowser: 3,
+    sessionsPerBrowser: 3,
+    parallelLimit: 3,
+    suitesPerSession: 10,
     // retry: 2,
 
     browsers: {
