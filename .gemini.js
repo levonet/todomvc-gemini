@@ -5,9 +5,11 @@ module.exports = {
     gridUrl: 'http://localhost:4444/wd/hub',
 
     // sessionsPerBrowser: 3,
+    // retry: 2,
 
     browsers: {
         'desktop-chrome': {
+            // windowSize: '1280x768',
             desiredCapabilities: {
                 browserName: 'chrome',
                 chromeOptions: {
