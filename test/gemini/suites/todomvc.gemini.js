@@ -5,6 +5,7 @@ gemini.suite('todomvc', (suite) => {
 
     gemini.suite('input', (suite) => {
         suite
+            // .skip('desktop-firefox', 'Not working autofocus JIRA-9999')
             .setCaptureElements('#new-todo')
             .capture('empty')
             .capture('filled', (actions) => {

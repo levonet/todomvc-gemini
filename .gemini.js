@@ -16,6 +16,14 @@ module.exports = {
                     args: [ '--disable-gpu' ]
                 }
             }
+        },
+        'desktop-firefox': {
+            windowSize: '1280x768',
+            desiredCapabilities: {
+                browserName: 'firefox',
+                version: '47.0',
+                platform: 'Windows 10'
+            }
         }
     },
 
@@ -24,6 +32,9 @@ module.exports = {
             'html-reporter': {
                 enabled: true,
                 path: 'gemini-report'
+            },
+            'gemini-saucelabs-info': {
+                enabled: true
             }
         }
     }
