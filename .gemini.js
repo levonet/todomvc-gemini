@@ -46,6 +46,15 @@ module.exports = {
             },
             'gemini-saucelabs-info': {
                 enabled: true
+            },
+            'json-server': {
+                enabled: true,
+                port: 8080,
+                schema: 'db.json',
+                routes: 'routes.json',
+                static: '.',
+                readOnly: true,
+                quiet: true
             }
         }
     }
