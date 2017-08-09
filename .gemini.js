@@ -27,6 +27,17 @@ module.exports = {
         }
     },
 
+    sets: {
+        local: {
+            files: ['test/gemini/suites/**/*.gemini.js'],
+            browsers: ['desktop-chrome']
+        },
+        sauce: {
+            files: ['test/gemini/suites/**/*.gemini.js'],
+            browsers: ['desktop-firefox']
+        }
+    },
+
     system: {
         plugins: {
             'html-reporter': {

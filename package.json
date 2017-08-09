@@ -1,7 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "test": "karma start test/config/karma.conf.js"
+    "test": "karma start test/config/karma.conf.js",
+    "gemini-local": "gemini test -s local",
+    "gemini-local-update": "gemini update -s local -b desktop-chrome",
+    "gemini-sauce": "gemini_grid_url=\"http://ondemand.saucelabs.com/wd/hub\" gemini test -s sauce",
+    "gemini-sauce-update": "gemini_grid_url=\"http://ondemand.saucelabs.com/wd/hub\" gemini update -s sauce -b desktop-firefox"
   },
   "dependencies": {
     "angular": "^1.4.3",
