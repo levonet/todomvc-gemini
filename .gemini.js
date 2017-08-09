@@ -55,6 +55,9 @@ module.exports = {
                 static: '.',
                 readOnly: true,
                 quiet: true
+            },
+            optipng: {
+                level: 5
             }
         }
     }
