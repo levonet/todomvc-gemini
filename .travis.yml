@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "4"
+addons:
+  sauce_connect: true
+script:
+  - npm run gemini-sauce
+after_script:
+  - |
+      if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+        REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
+        DEPLOY_DOMAIN="pr-${TRAVIS_PULL_REQUEST}-${REPO_SLUG_ARRAY[1]}-${REPO_SLUG_ARRAY[0]}.surge.sh"
+        npm install surge
+        mkdir _reports
+        mv gemini-report _reports
+        surge -p _reports -d ${DEPLOY_DOMAIN}
+        curl -H "Authorization: token ${GITHUB_TOKEN}" \
+          --request POST "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments" \
+          --data '{"body":"Travis automatic deployment:\n\n- [Gemini Report](http://'${DEPLOY_DOMAIN}'/gemini-report/)"}'
+      fi
