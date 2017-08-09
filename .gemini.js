@@ -62,6 +62,13 @@ module.exports = {
             optipng: {
                 level: 5
             }
+        },
+        coverage: {
+            enabled: true,
+            exclude: [
+                'node_modules/todomvc-common/base.css',
+                'null'
+            ]
         }
     }
 };
